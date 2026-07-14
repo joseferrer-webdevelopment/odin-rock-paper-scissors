@@ -34,44 +34,75 @@ const resultadoTexto = document.getElementById("resultado");
 const puntajeJugador = document.getElementById("puntaje_jugador");
 const puntajePc = document.getElementById("puntaje_pc");
 
+
+function checkGameWinner() {
+    if (playerScore === 5) {
+      alert("¡Ganaste el juego!");
+      playerScore = 0;
+      computerScore = 0;
+      puntajeJugador.textContent = playerScore;
+      puntajePc.textContent = computerScore;
+    } else if (computerScore === 5) {
+      alert("¡Perdiste! Esta vez no fue");
+      playerScore = 0;
+      computerScore = 0;
+      puntajeJugador.textContent = playerScore;
+      puntajePc.textContent = computerScore;
+    }
+  }
+
+  
+
 piedraBtn.addEventListener("click", function () {
   const playerChoice = "piedra";
   const computerSelection = getComputerChoice();
   const resultado = playRound(playerChoice, computerSelection);
+
   if (resultado === "Ganaste") {
     playerScore = playerScore + 1;
   } else if (resultado === "Perdiste") {
     computerScore = computerScore + 1;
   }
+
   resultadoTexto.textContent = resultado;
   puntajeJugador.textContent = playerScore;
   puntajePc.textContent = computerScore;
+
+  checkGameWinner();
 });
 
 tijeraBtn.addEventListener("click", function () {
   const playerChoice = "tijera";
   const computerSelection = getComputerChoice();
   const resultado = playRound(playerChoice, computerSelection);
+
   if (resultado === "Ganaste") {
     playerScore = playerScore + 1;
   } else if (resultado === "Perdiste") {
     computerScore = computerScore + 1;
   }
+
   resultadoTexto.textContent = resultado;
   puntajeJugador.textContent = playerScore;
   puntajePc.textContent = computerScore;
+
+  checkGameWinner();
 });
 
 papelBtn.addEventListener("click", function () {
   const playerChoice = "papel";
   const computerSelection = getComputerChoice();
   const resultado = playRound(playerChoice, computerSelection);
+
   if (resultado === "Ganaste") {
     playerScore = playerScore + 1;
   } else if (resultado === "Perdiste") {
     computerScore = computerScore + 1;
   }
+
   resultadoTexto.textContent = resultado;
   puntajeJugador.textContent = playerScore;
   puntajePc.textContent = computerScore;
+
+  checkGameWinner();
 });
