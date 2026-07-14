@@ -28,25 +28,22 @@ function playRound(playerChoice, computerChoice) {
 const piedraBtn = document.getElementById("piedra");
 const tijeraBtn = document.getElementById("tijera");
 const papelBtn = document.getElementById("papel");
+const resultadoTexto = document.getElementById("resultado");
 
 piedraBtn.addEventListener("click", function () {
   const playerChoice = "piedra";
   const computerSelection = getComputerChoice();
-  const result = playRound(playerChoice, computerSelection);
-  console.log(result);
+  resultadoTexto.textContent = playRound(playerChoice, computerSelection);
 });
 
 tijeraBtn.addEventListener("click", function () {
   const playerChoice = "tijera";
   const computerSelection = getComputerChoice();
-  const result = playRound(playerChoice, computerSelection)
-  console.log(result)
+  resultadoTexto.textContent = playRound(playerChoice, computerSelection);
 });
-
 
 papelBtn.addEventListener("click", function () {
   const playerChoice = "papel";
   const computerSelection = getComputerChoice();
-  const result = playRound(playerChoice, computerSelection)
-  console.log(result)
+  resultadoTexto.textContent = playRound(playerChoice, computerSelection);
 });
