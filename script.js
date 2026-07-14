@@ -1,8 +1,8 @@
 const choices = ["piedra", "papel", "tijera"];
 
 function getComputerChoice() {
-    const randomIndex = Math.floor(Math.random() * choices.length);
-    return choices[randomIndex];
+  const randomIndex = Math.floor(Math.random() * choices.length);
+  return choices[randomIndex];
 }
 
 function playRound(playerChoice, computerChoice) {
@@ -11,18 +11,42 @@ function playRound(playerChoice, computerChoice) {
   }
 
   if (playerChoice === "piedra" && computerChoice === "tijera") {
-  return "Ganaste";
+    return "Ganaste";
+  }
+
+  if (playerChoice === "papel" && computerChoice === "piedra") {
+    return "Ganaste";
+  }
+
+  if (playerChoice === "tijera" && computerChoice === "papel") {
+    return "Ganaste";
+  }
+
+  return "Perdiste";
 }
 
-if (playerChoice === "papel" && computerChoice === "piedra") {
-  return "Ganaste";
-}
+const piedraBtn = document.getElementById("piedra");
+const tijeraBtn = document.getElementById("tijera");
+const papelBtn = document.getElementById("papel");
 
-if (playerChoice === "tijera" && computerChoice === "papel") {
-  return "Ganaste";
-}
+piedraBtn.addEventListener("click", function () {
+  const playerChoice = "piedra";
+  const computerSelection = getComputerChoice();
+  const result = playRound(playerChoice, computerSelection);
+  console.log(result);
+});
 
-return "Perdiste"
+tijeraBtn.addEventListener("click", function () {
+  const playerChoice = "tijera";
+  const computerSelection = getComputerChoice();
+  const result = playRound(playerChoice, computerSelection)
+  console.log(result)
+});
 
-}
 
+papelBtn.addEventListener("click", function () {
+  const playerChoice = "papel";
+  const computerSelection = getComputerChoice();
+  const result = playRound(playerChoice, computerSelection)
+  console.log(result)
+});
