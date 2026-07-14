@@ -33,6 +33,7 @@ const papelBtn = document.getElementById("papel");
 const resultadoTexto = document.getElementById("resultado");
 const puntajeJugador = document.getElementById("puntaje_jugador");
 const puntajePc = document.getElementById("puntaje_pc");
+const pcSeleccion = document.getElementById("computadora_eligio");
 
 
 function checkGameWinner() {
@@ -51,7 +52,7 @@ function checkGameWinner() {
     }
   }
 
-  
+
 
 piedraBtn.addEventListener("click", function () {
   const playerChoice = "piedra";
@@ -65,6 +66,7 @@ piedraBtn.addEventListener("click", function () {
   }
 
   resultadoTexto.textContent = resultado;
+  pcSeleccion.textContent = computerSelection;
   puntajeJugador.textContent = playerScore;
   puntajePc.textContent = computerScore;
 
@@ -83,6 +85,7 @@ tijeraBtn.addEventListener("click", function () {
   }
 
   resultadoTexto.textContent = resultado;
+  pcSeleccion.textContent = computerSelection;
   puntajeJugador.textContent = playerScore;
   puntajePc.textContent = computerScore;
 
@@ -101,8 +104,12 @@ papelBtn.addEventListener("click", function () {
   }
 
   resultadoTexto.textContent = resultado;
+  pcSeleccion.textContent = computerSelection;
   puntajeJugador.textContent = playerScore;
   puntajePc.textContent = computerScore;
 
   checkGameWinner();
 });
+
+
+
